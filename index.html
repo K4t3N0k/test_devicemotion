@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = () => {
+            if ('ondevicemotion' in window) {
+                window.addEventListener('devicemotion', onMotion)
+                motionSupported="supported";
+            }
+
+            function onMotion(event) {
+                if (event.acceleration.x==null && event.acceleration.y==null && event.acceleration.z==null
+                && event.accelerationIncludingGravity.x==null && event.accelerationIncludingGravity.y==null && event.accelerationIncludingGravity.z==null
+                && event.rotationRate.alpha==null && event.rotationRate.beta==null && event.rotationRate.gamma==null) {
+                    document.getElementById("shakeX").innerHTML = "no"
+                    return;
+                }
+
+                document.getElementById('shakeX').innerHTML =
+                    roundToFixedArray([event.acceleration.x,
+                                    event.acceleration.y,
+                                    event.acceleration.z]);
+
+                document.getElementById("shakeY").innerHTML =
+                    roundToFixedArray([event.accelerationIncludingGravity.x,
+                                    event.accelerationIncludingGravity.y,
+                                    event.accelerationIncludingGravity.z]);
+
+                document.getElementById("shakeZ").innerHTML =
+                    roundToFixedArray([event.rotationRate.alpha,
+                                    event.rotationRate.beta,
+                                    event.rotationRate.gamma]);
+
+                document.getElementById("shakeG").innerHTML = event.interval;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="shakeX"></div>
+    <div id="shakeY"></div>
+    <div id="shakeZ"></div>
+    <div id="shakeG"></div>
+</body>
+</html>
