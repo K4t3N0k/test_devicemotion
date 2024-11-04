@@ -6,10 +6,10 @@
     <title>Document</title>
     <script>
         window.onload = () => {
-            if ('ondevicemotion' in window) {
-                window.addEventListener('devicemotion', onMotion)
-                motionSupported="supported";
-            }
+            // if ('ondevicemotion' in window) {
+            window.addEventListener('devicemotion', onMotion)
+            //     motionSupported="supported";
+            // }
 
             function onMotion(event) {
                 if (event.acceleration.x==null && event.acceleration.y==null && event.acceleration.z==null
