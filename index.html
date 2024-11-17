@@ -12,6 +12,9 @@
             margin: 0;
             padding: 0;
         }
+        .body {
+            overflow: hidden;
+        }
         #main-container {
             display: flex;
             flex-direction: column;
@@ -21,7 +24,9 @@
         #top-bar {
             flex: 1;
             display: flex;
-            min-height: 120px;
+            /* min-height: 120px; */
+            min-height: 15%;
+            max-height: 15%;
             align-items: center;
             justify-content: center;
             /* background-color: #e6324b; */
@@ -38,7 +43,9 @@
         #bottom-bar {
             flex: 1;
             display: flex;
-            min-height: 120px;
+            /* min-height: 120px; */
+            min-height: 15%;
+            max-height: 15%;
             align-items: center;
             justify-content: center;
             background-color: #263238;
@@ -91,7 +98,9 @@
             top: 0;
             width: 100%;
             display: flex;
-            min-height: 120px;
+            min-height: 15%;
+            max-height: 15%;
+            /* min-height: 120px; */
             align-items: center;
             justify-content: center;
             background-color: #e6324b;
@@ -110,14 +119,14 @@
                 const tween0 = new Tween(test)
                 tween0.to({ height: 1 }, 700)
                 tween0.onUpdate(() => {
-                    fade.style.minHeight = `${120 + test.height * (window.innerHeight - 120)}px`
+                    fade.style.minHeight = `${15 + Math.floor(85 * test.height)}%` // `${120 + test.height * (window.innerHeight - 120)}px`
                 })
                 tween0.easing(Easing.Sinusoidal.InOut)
 
                 const tween1 = new Tween(test)
                 tween1.to({ height: 0 }, 700)
                 tween1.onUpdate(() => {
-                    fade.style.minHeight = `${120 + test.height * (window.innerHeight - 120)}px`
+                    fade.style.minHeight = `${15 + Math.floor(85 * test.height)}%` // `${120 + test.height * (window.innerHeight - 120)}px`
                 })
                 tween1.easing(Easing.Sinusoidal.InOut)
 
