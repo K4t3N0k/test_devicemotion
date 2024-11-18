@@ -1,194 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life is scarier</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <style>
-        * {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Life is scarier</title><style>* {
             margin: 0;
             padding: 0;
         }
-        .body {
-            overflow: hidden;
-        }
-        #main-container {
+        body {
             display: flex;
             flex-direction: column;
             width: 100%;
             height: 100vh;
+            overflow: hidden;
         }
         #top-bar {
-            flex: 1;
+            background-color: #e6324b;
             display: flex;
-            /* min-height: 120px; */
             min-height: 15%;
             max-height: 15%;
             align-items: center;
             justify-content: center;
-            /* background-color: #e6324b; */
-            background-color: #263238;
         }
-        #midle-bar {
-            flex: 8;
+        #podcast-logo {
+            height: 100%;
+        }
+        #main-container {
+            background-color: #263238;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #263238;
         }
-        #bottom-bar {
-            flex: 1;
-            display: flex;
-            /* min-height: 120px; */
-            min-height: 15%;
-            max-height: 15%;
-            align-items: center;
-            justify-content: center;
-            background-color: #263238;
-            /* background-color: #e6324b; */
-        }
-        #logo {
-            height: 100px;
-        }
-        #poster {
-            height: 300px;
-        }
-        #label-main {
-            font-family: "Lora", serif;
-            font-size: 40px;
-            color: #e6324b;
-            text-align: center;
-        }
-        #label-second {
-            font-family: "Lora", serif;
-            font-size: 32px;
-            color: #ffffff;
-            text-align: center;
-        }
-        #sites {
-            margin: 6px;
-        }
-        #site {
-            height: 46px;
-            margin: 6px;
-        }
-        #random {
-            height: 80px;
-        }
-        #paint {
-            position: absolute;
-            left: 0;
-            top: 0;
+        #film-info {
             width: 100%;
             height: 100%;
-            background-repeat: repeat;
-            background-image: url("./paint.jpg");
-            background-position: right top;
-            background-size: contain;
-            mix-blend-mode: multiply;
-            pointer-events: none;
-        }
-        #fade-bar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
             display: flex;
-            min-height: 15%;
-            max-height: 15%;
-            /* min-height: 120px; */
+            align-items: center;
+            justify-content: space-between;
+        }
+        #film-info-small {
+            background-color: #37474f;
+            width: 300px;
+            height: 500px;
+        }
+        #film-info-poster {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+        #film-info-title-ru {
+            color: #e6324b;
+            font-size: 28px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            height: 65px;
+        }
+        #film-info-title-en {
+            color: #ffffff;
+            font-size: 24px;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
+            height: 65px;
+
+            margin-top: 10px;
+        }
+        #film-info-links {
+            display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            background-color: #e6324b;
+            gap: 10px;
+            height: 50px;
         }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/23.1.3/tween.umd.js"></script>
-    <script>
-        let isAnimate = false
-        function start() {
-            if (!isAnimate) {
-                isAnimate = true
-
-                const fade = document.getElementById('fade-bar')
-                const { Tween, Easing } = TWEEN
-                const test = { height: 0 }
-                const tween0 = new Tween(test)
-                tween0.to({ height: 1 }, 700)
-                tween0.onUpdate(() => {
-                    fade.style.minHeight = `${15 + Math.floor(85 * test.height)}%` // `${120 + test.height * (window.innerHeight - 120)}px`
-                })
-                tween0.easing(Easing.Sinusoidal.InOut)
-
-                const tween1 = new Tween(test)
-                tween1.to({ height: 0 }, 700)
-                tween1.onUpdate(() => {
-                    fade.style.minHeight = `${15 + Math.floor(85 * test.height)}%` // `${120 + test.height * (window.innerHeight - 120)}px`
-                })
-                tween1.easing(Easing.Sinusoidal.InOut)
-
-                tween0.chain(tween1)
-                tween0.start()
-
-                tween0.onComplete(() => {
-                    swap()
-                })
-                tween1.onComplete(() => {
-                    isAnimate = false
-                })
-            }
+        #button-link-kinopoisk {
+            height: 36px;
         }
-        function swap() {
-            const labelMain = document.getElementById('label-main')
-            const labelSecond = document.getElementById('label-second')
-            const poster = document.getElementById('poster')
-            if (labelMain.innerText === 'Крик') {
-                labelMain.innerText = 'Цвет из иных миров'
-                labelSecond.innerText = 'Color Out of Space'
-                poster.src = './poster2.jpg'
-            } else {
-                labelMain.innerText = 'Крик'
-                labelSecond.innerText = 'Scream'
-                poster.src = './49455-scream-0-500-0-750-crop.jpg'
-            }
+        #button-link-imdb {
+            height: 36px;
         }
-        window.onload = () => {
-            const imageButton = document.getElementById('random')
-            imageButton.addEventListener('pointerdown', () => {
-                start()
-            })
-
-            function animate(time) {
-                window.requestAnimationFrame(animate)
-                TWEEN.update(time)
-            }
-            animate()
+        .button-link-icon {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
         }
-    </script>
-</head>
-<body>
-    <div id="main-container">
-        <div id="top-bar">
-        </div>
-        <div id="midle-bar">
-            <img src="./49455-scream-0-500-0-750-crop.jpg" alt="poster" id="poster">
-            <div id="label-main">Крик</div>
-            <div id="label-second">Scream</div>
-            <div id="sites">
-                <img src="./icon_kinopoisk.png" alt="randomize movie" id="site">
-                <img src="./icon_imdb.png" alt="randomize movie" id="site">
-            </div>
-        </div>
-        <div id="bottom-bar">
-            <img src="./icon_dice.png" alt="randomize movie" id="random">
-        </div>
-    </div>
-    <div id="fade-bar">
-        <img src="./icon_logo.png" alt="logo" id="logo">
-    </div>
-    <div id="paint"></div>
-</body>
-</html>
+        #list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            min-height: 20%;
+            max-height: 20%;
+        }
+        #list-number {
+            color: white;
+            font-size: 32px;
+        }
+        #button-randomize-movie {
+            height: 70px;
+        }
+        #button-visibility {
+            height: 50px;
+            width: 100%;
+        }
+        .arrow-button {
+            width: 60px;
+            height: 60px;
+        }</style></head><body><div id="top-bar"><img src="./icons/podcast-logo.jpg" alt="podcast logo" id="podcast-logo"></div><div id="main-container"><div id="film-info"><img src="./icons/icon-left.svg" alt="button prev movie" class="arrow-button" id="button-left"><div id="film-info-small"><img src="./posters/scream.jpg" alt="poster" id="film-info-poster"><div id="film-info-title-ru">Крик</div><div id="film-info-title-en">Scream</div><div id="film-info-links"><a href="" target="_blank" id="button-link-kinopoisk"><img src="./icons/icon-kinopoisk.svg" alt="button link kinopoisk" class="button-link-icon"></a><a href="" target="_blank" id="button-link-imdb"><img src="./icons/icon-imdb.svg" alt="button link imdb" class="button-link-icon"></a></div><img src="icons/icon-visibility-on.svg" alt="button link imdb" id="button-visibility"></div><img src="./icons/icon-right.svg" alt="button next movie" class="arrow-button" id="button-right"></div><div id="list"><div id="list-number">-/-</div><img src="./icons/icon-dice.png" alt="button randomize movie" id="button-randomize-movie"></div></div><script defer="defer" src="main.js"></script></body></html>
