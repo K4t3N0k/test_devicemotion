@@ -13,8 +13,9 @@
         #top-bar {
             background-color: #e6324b;
             display: flex;
-            min-height: 12%;
-            max-height: 12%;
+            /* min-height: 12%;
+            max-height: 12%; */
+            height: 100px;
             align-items: center;
             justify-content: center;
         }
@@ -23,29 +24,31 @@
         }
         #main-container {
             background-color: #263238;
-            height: 100%;
+            /* height: 100%; */
+            height: 980px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
         }
         #film-info {
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
+            height: 800px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
         }
         #film-info-small {
             background-color: #37474f;
-            width: 280px;
-            height: 500px;
+            width: 400px;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
         }
         #film-info-poster {
-            width: 100%;
-            height: 240px;
+            width: 400px;
             object-fit: contain;
-            margin-top: 10px;
         }
         #film-info-title-ru {
             color: #e6324b;
@@ -67,7 +70,7 @@
             text-align: center;
             height: 65px;
 
-            margin-top: 10px;
+            /* margin-top: 10px; */
         }
         #film-info-links {
             display: flex;
@@ -75,13 +78,15 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            height: 50px;
+            height: 60px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         #button-link-kinopoisk {
-            height: 36px;
+            height: 100%;
         }
         #button-link-imdb {
-            height: 36px;
+            height: 100%;
         }
         .button-link-icon {
             object-fit: contain;
@@ -94,21 +99,23 @@
             align-items: center;
             justify-content: space-evenly;
             width: 100%;
-            min-height: 20%;
-            max-height: 20%;
+            /* min-height: 20%;
+            max-height: 20%; */
+            min-height: 100px;
         }
         #list-number {
             color: white;
             font-size: 32px;
         }
         #button-randomize-movie {
-            height: 70px;
+            height: 100px;
         }
         #button-visibility {
-            height: 50px;
-            width: 100%;
+            height: 100%;
+            /* width: 100%; */
+            margin-left: auto;
         }
         .arrow-button {
             width: 60px;
             height: 60px;
-        }</style></head><body><div id="top-bar"><img src="./icons/podcast-logo.jpg" alt="podcast logo" id="podcast-logo"></div><div id="main-container"><div id="film-info"><img src="./icons/icon-left.svg" alt="button prev movie" class="arrow-button" id="button-left"><div id="film-info-small"><img src="./posters/scream.jpg" alt="poster" id="film-info-poster"><div id="film-info-title-ru">Крик</div><div id="film-info-title-en">Scream</div><div id="film-info-links"><a href="" target="_blank" id="button-link-kinopoisk"><img src="./icons/icon-kinopoisk.svg" alt="button link kinopoisk" class="button-link-icon"></a><a href="" target="_blank" id="button-link-imdb"><img src="./icons/icon-imdb.svg" alt="button link imdb" class="button-link-icon"></a></div><img src="icons/icon-visibility-on.svg" alt="button link imdb" id="button-visibility"></div><img src="./icons/icon-right.svg" alt="button next movie" class="arrow-button" id="button-right"></div><div id="list"><div id="list-number">-/-</div><img src="./icons/icon-dice.png" alt="button randomize movie" id="button-randomize-movie"></div></div><script defer="defer" src="main.js"></script></body></html>
+        }</style></head><body><div id="top-bar"><img src="./icons/podcast-logo.jpg" alt="podcast logo" id="podcast-logo"></div><div id="main-container"><div id="film-info"><img src="./icons/icon-left.svg" alt="button prev movie" class="arrow-button" id="button-left"><div id="film-info-small"><img src="./posters/scream.jpg" alt="poster" id="film-info-poster"><div id="film-info-title-ru">Крик</div><div id="film-info-title-en">Scream</div><div id="film-info-links"><a href="" target="_blank" id="button-link-kinopoisk"><img src="./icons/icon-kinopoisk.svg" alt="button link kinopoisk" class="button-link-icon"></a><a href="" target="_blank" id="button-link-imdb"><img src="./icons/icon-imdb.svg" alt="button link imdb" class="button-link-icon"></a><img src="icons/icon-visibility-off.svg" alt="button link imdb" id="button-visibility"></div></div><img src="./icons/icon-right.svg" alt="button next movie" class="arrow-button" id="button-right"></div><div id="list"><img src="./icons/icon-dice.png" alt="button randomize movie" id="button-randomize-movie"></div></div><script defer="defer" src="main.js"></script></body></html>
