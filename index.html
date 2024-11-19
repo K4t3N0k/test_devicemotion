@@ -5,31 +5,27 @@
         }
         body {
             width: 100%;
-            height: fit-content;
-            overflow: hidden;
-        }
-        #root {
+            height: var(--tg-viewport-stable-height);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            height: var(--tg-viewport-stable-height);
         }
         #top-bar {
             background-color: #e6324b;
             display: flex;
-            min-height: calc(0.11 * var(--tg-viewport-stable-height));
-            max-height: calc(0.11 * var(--tg-viewport-stable-height));
+            min-height: 11%;
+            max-height: 11%;
             align-items: center;
             justify-content: center;
         }
         #podcast-logo {
-            height: calc(0.11 * var(--tg-viewport-stable-height));
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         #main-container {
             background-color: #263238;
-            min-height: calc(0.89 * var(--tg-viewport-stable-height));
-            max-height: calc(0.89 * var(--tg-viewport-stable-height));
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -118,4 +114,4 @@
         }
         .arrow-button {
             width: 10vw;
-        }</style></head><body><div id="root"><div id="top-bar"><img src="./icons/podcast-logo.png" alt="podcast logo" id="podcast-logo"></div><div id="main-container"><div id="film-info"><img src="./icons/icon-left.svg" alt="button prev movie" class="arrow-button" id="button-left"><div id="film-info-small"><img src="./posters/scream.jpg" alt="poster" id="film-info-poster"><div id="film-info-title-ru">Крик</div><div id="film-info-title-en">Scream</div><div id="film-info-links"><a href="" target="_blank" id="button-link-kinopoisk"><img src="./icons/icon-kinopoisk.svg" alt="button link kinopoisk" class="button-link-icon"></a><a href="" target="_blank" id="button-link-imdb"><img src="./icons/icon-imdb.svg" alt="button link imdb" class="button-link-icon"></a><img src="icons/icon-visibility-off.svg" alt="button link imdb" id="button-visibility"></div></div><img src="./icons/icon-right.svg" alt="button next movie" class="arrow-button" id="button-right"></div><div id="list"><img src="./icons/icon-dice.png" alt="button randomize movie" id="button-randomize-movie"></div></div></div><script defer="defer" src="main.js"></script></body></html>
+        }</style></head><body><div id="top-bar"><img src="./icons/podcast-logo.png" alt="podcast logo" id="podcast-logo"></div><div id="main-container"><div id="film-info"><img src="./icons/icon-left.svg" alt="button prev movie" class="arrow-button" id="button-left"><div id="film-info-small"><img src="./posters/scream.jpg" alt="poster" id="film-info-poster"><div id="film-info-title-ru">Крик</div><div id="film-info-title-en">Scream</div><div id="film-info-links"><a href="" target="_blank" id="button-link-kinopoisk"><img src="./icons/icon-kinopoisk.svg" alt="button link kinopoisk" class="button-link-icon"></a><a href="" target="_blank" id="button-link-imdb"><img src="./icons/icon-imdb.svg" alt="button link imdb" class="button-link-icon"></a><img src="icons/icon-visibility-off.svg" alt="button link imdb" id="button-visibility"></div></div><img src="./icons/icon-right.svg" alt="button next movie" class="arrow-button" id="button-right"></div><div id="list"><img src="./icons/icon-dice.png" alt="button randomize movie" id="button-randomize-movie"></div></div><script defer="defer" src="main.js"></script></body></html>
